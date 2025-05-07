@@ -27,5 +27,10 @@ public class User {
     public String getPhoneNumber() {
         return phonenumber;
     }
+    
+    public void menu() {
+        
+    }
+    
 
 }
