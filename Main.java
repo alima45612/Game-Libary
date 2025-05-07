@@ -34,10 +34,10 @@ public class Main {
         int n = storedate.login(phonenumber, email);
         if(n!= -1) {
             User user = storedate.getUser(n);
-            System.out.println("Welcome " + user.getName());
+            user.menu();
 
         }else{
-            return;
+            System.out.println("User does not exist");
         }
     }
 
@@ -50,13 +50,13 @@ public class Main {
         String email = s.next();
         System.out.println("1. Admin\n2. Normal User");
         int n2 = s.nextInt();
+        User user;
         if (n2==1) {
-            User admin = new Admin(name, email, phonenumber);
-            storedate.AddUser(admin);
+            user = new Admin(name, email, phonenumber);
         }else{
-            User user = new Admin(name, email, phonenumber);
-            storedate.AddUser(user);
+            user = new NormalUser(name, email, phonenumber);
         }
-        System.out.println("User creates successfully");
+        storedate.AddUser(user);
+        user.menu();
     }
 }
